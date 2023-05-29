@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Qidium_Card</title>
+        <style type="text/css">
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .container {
+            position: relative;
+                height: 678px;
+                width: 710px;
+                background-color: transparent;
+                border-radius: 12px;
+                border: 2px solid #ccc;
+            }
+
+            .block1 {
+            position: absolute;
+            top: 0px;
+            left: 120px;
+                text-align: center;
+                height: 300px;
+                width: 400px;
+                padding: 30px;
+            }
+
+            .block2 {
+            position: absolute;
+            top: 300px;
+                border-right: 1.5px solid #ccc;
+                margin-left: 30px;
+                width: 43%;
+                height: 300px;
+                line-height: 30px;
+            }
+            .bt1 {
+                background-color: #7559fe;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                border: none;
+                width: 282px;
+                font-size: 20px;
+                padding: 15px;
+                margin-top: 15px;
+                margin-bottom: 13px;
+            }
+
+            .qmk {
+                text-decoration: none;
+                color: black;
+                margin-left: 180px;
+                font-size: 13px;
+            }
+            input {
+                width: 255px;
+                padding: 13px;
+                font-size: 14px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+
+            .block3 {
+            position: absolute;
+            top: 300px;
+            left: 350px;
+                height: 350px;
+                width: 350px;
+                /* border: 1px solid red; */
+                text-align: center;
+            }
+
+            hr {
+                width: 275px;
+                border: none;
+                height: 0.7px;
+                background-color: gray;
+            }
+
+            .hoac {
+            position: absolute;
+            top: -14px;
+            left: 136px;
+                border: 1px;
+                /* border: 1px solid red; */
+                background-color: white;
+                width: 80px;
+            }
+            
+            .facebook-button {
+            position: absolute;
+            top: 35px;
+            left: 25px;
+                display: flex;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: transparent ;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                cursor: pointer;
+                width: 300px;
+                align-items: center;
+            }
+            .facebook-button img {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                margin-right: 10px;
+                align-items: center
+                
+            }
+            .Google-button {
+            position: absolute;
+            top: 95px;
+            left: 25px;
+                display: flex;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: transparent ;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                cursor: pointer;
+                width: 300px;
+                align-items: center
+            }
+            .Google-button img {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                margin-right: 15px;
+                align-items: center
+            }
+            .dkemail{
+            position: absolute;
+            transform: translate(-50%, 85px);
+                width: 500px;
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+                font-size: 13px;
+            }
+            .dkdk{
+            position: absolute;
+            transform: translate(-50%, 110px);
+                width: 330px;
+                text-decoration: none;
+                line-height: 23px;
+                font-size: 13px;
+            }
+            .dkdk a {
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                font-size: 13px;
+            }
+            .block4 {
+            position: absolute;
+            top: 630.5px;
+            left: -0.5px;
+                height: 48px;
+                width: 711px;
+                border-bottom-left-radius: 10.25px;
+                border-bottom-right-radius: 10.25px;
+                background-color: #efefee;
+                /* border: 1px solid red; */
+            }
+            .footer{
+                list-style-type: none;
+                font-size: 14px;
+                color: gray;
+                display: flex;
+                justify-content: space-between;
+                list-style-type: none;
+                padding: 0px;
+                margin: 15px;
+            }
+            .footer a {
+                text-decoration: none;
+                color: gray;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="block1">
+                <img src="Logo-Qidium.svg" alt="logo" /><br />
+                <p1 style="color: #7559fe; font-size: 50px; line-height: 80px">Qidium</p1><br />
+                <p2 style="font-size: 20px; line-height: 30px"><b>Mạng hỏi đáp và chia sẻ tri thức</b></p2><br />
+                <p3 style="line-height: 25px; font-size: 15px">Cùng kết nối với +12.460 thành viên và mentor<br />trong
+                    nhiều lĩnh
+                    vực ngành nghề</p3>
+            </div>
+
+            <div class="block2">
+                <form>
+                    <label for="username"><b>ID or Email</b></label><br />
+                    <input type="text" id="username" name="username" placeholder="Tên đăng nhập hoặc Email" /><br />
+                    <label for="password"><b>Password</b></label><br />
+                    <input type="password" id="password" name="password" placeholder="Mật khẩu của bạn" /><br />
+                    <button class="bt1" type="submit"><b>Đăng nhập</b></button>
+                    <a class="qmk" href="forgot_password.php">Quên mật khẩu?</a>
+                </form>
+            </div>
+
+            <div class="block3">
+                <hr> <br>
+                <div class="hoac"><p>Hoặc</p></div> <br>
+                        <button class="facebook-button" type="submit" >
+                            <img src="face_icon.svg" alt="Đăng nhập bằng Facebook"> Đăng nhập bằng Facebook</button> <br>
+                        <button class="Google-button" type="submit">
+                            <img src="google_icon.svg" alt="Đăng nhập bằng Google"> Đăng nhập bằng Google</button>
+                            
+                    <a class="dkemail" href="Emailsignup.php">Đăng ký tài khoản bằng Email</a>
+                    
+                        <p><span class="dkdk">Đăng nhập đổng nghĩa với việc bạn đồng ý với <a href="https://example.com/">Điều kiện & Điều khoản</a> và đã đọc <a href="https://example.com/">Chính sách bảo mật</a> bao gồm <a href="https://example.com/">Bộ quy tắc cộng đồng</a> của chúng tôi. </span></p>
+            </div>
+            
+            <div class="block4">
+                <ul class="footer">
+                    <li><a href="https://example.com/">About</a></li>
+                    <li><a href="https://example.com/">Careers</a></li>
+                    <li><a href="https://example.com/">Privacy</a></li>
+                    <li><a href="https://example.com/">Terms</a></li>
+                    <li><a href="https://example.com/">Contact</a></li>
+                    <li><a href="https://example.com/">Languages</a></li>
+                    <li><p style="margin: 0">Qidium &copy; 2022</p></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>
