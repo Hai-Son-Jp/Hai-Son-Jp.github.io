@@ -1,0 +1,19 @@
+{
+	"workbench.tree.indent": 4,
+	"html.format.wrapAttributesIndentSize": 4,
+	"html.format.indentHandlebars": true,
+	"html.format.indentInnerHtml": true,
+	"prettier.vueIndentScriptAndStyle": true,
+	"prettier.useTabs": true,
+	"editor.autoClosingBrackets": "always",
+	"editor.autoClosingDelete": "always",
+	"editor.guides.bracketPairs": true,
+	"editor.guides.bracketPairsHorizontal": true,
+	"editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+	"editor.guides.indentation": true,
+	"indentRainbow.colorOnWhiteSpaceOnly": true,
+	"indentRainbow.indicatorStyle": "light",
+	"editor.lineHeight": 1.9,
+	"editor.fontSize": 16
+}

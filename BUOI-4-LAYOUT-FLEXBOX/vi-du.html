@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 1000px;
+        height: 1000px;
+        border: 1px solid black;
+        display: flex;
+
+        /* Flex-direction: Định hướng chiều ngang (dọc) */
+        /* flex-direction: row; Mặc định của flex */
+        /* flex-direction: row-reverse; Đảo ngược thứ tự từ phải qua trái */
+        /* flex-direction: column; Sắp xếp theo cột từ trên xuống dưới như display: block (nhưng ko chiếm dòng) */
+        /* flex-direction: column-reverse; Căn cột ngược từ dưới lên trên */
+
+        /* Wrap: bao bọc các phần tử con (flex-items) */
+        /* flex-wrap: nowrap; Không bọc các items (các items bị đè trên 1 dòng) */
+        /* flex-wrap: wrap; Các phần tử được căn từ trái qua phải, từ trên xuống dưới */
+        /* flex-wrap: wrap-reverse; Ngược lại của wrap (Từ dưới lên trên) */
+
+        /* Justified-content: Dùng để căn chỉnh vị trí của các items trên trục chính (trục ngang) */
+        /* justify-content: flex-start; Giá trị mặc định, căn từ lề trái qua phải */
+        /* justify-content: flex-end; Đẩy tất cả các phần từ về lê bên phải */
+        /* justify-content: center; Căn giữa các phần tử dựa trên trục ngang (main axis) */
+        /* justify-content: space-between; Chèn space dư ra vào giữa các items */
+        /* justify-content: space-around; Căn lề 2 bên = 1/2 khoảng cách dư ra giữa các items */
+        /* justify-content: space-evenly; Chia đều khoảng cách giữa tất cả các phần tử và các điểm main start, main end */
+
+        /* Align-items: Dùng để căn chỉnh vị trí của các items theo trục dọc (cross axis) */
+        /* align-items: stretch; Chiều dài của các items sẽ bằng chiều dài của trục cross axis */
+        /* align-items: flex-start; Tương đương với mặc định */
+        /* align-items: flex-end; Căn từ dưới lên theo trục dọc */
+        /* align-items: center; Căn giữa theo trục dọc */
+        /* align-items: baseline; Căn giữa các dòng dữ liệu văn bản */
+        
+        /* Align-content: Tương tự justify-content nhưng theo chiều dọc (cần 1 thuộc tính nữa là flex-wrap: wrap) */
+        /* flex-wrap: wrap; */
+        /* align-content: stretch; Tương tự align-items: stretch; */
+        /* align-content: flex-start; Tương đương với mặc định ban đầu; */
+        /* align-content: flex-end; Tương tự align-content: flex-start; nhưng sẽ căn từ dưới lên trên */
+        /* align-content: center; Tương tự align-items: center; */
+        /* align-content: space-between; Căn đều khoảng trắng ở giữa 2 dòng */
+        /* align-content: space-around; Tương tự justify-content: space-around; nhưng theo chiều dọc */
+        /* align-content: space-evenly; Tương tự justify-content: space-evenly; */
+    }
+    .box-1, .box-2, .box-3, .box-4, .box-5, .box-6, .box-7, .box-8 {
+        width: 200px;
+        height: 200px;
+        font-size: 50px;
+    }
+    .box-1 {
+        background-color: red;
+    }
+    .box-2 {
+        background-color: yellow;
+    }
+    .box-3 {
+        background-color: green;
+    }
+    .box-4 {
+        background-color: blue;
+    }
+    .box-5 {
+        background-color: aqua;
+    }
+    .box-6 {
+        background-color: orange;
+    }
+    .box-7 {
+        background-color: gray;
+    }
+    .box-8 {
+        background-color: brown;
+    }
+</style>
+<body>
+    <div class="box"> <!-- flex-container -->
+        <div class="box-1">1</div> <!-- flex-item -->
+        <div class="box-2">2</div> <!-- flex-item -->
+        <div class="box-3">3</div> <!-- flex-item -->
+        <div class="box-4">4</div> <!-- flex-item -->
+        <div class="box-5">5</div> 
+        <div class="box-6">6</div>
+        <div class="box-7">7</div>
+        <div class="box-8">8</div>
+    </div>
+    <div class="baitap-1">
+        <p>Tạo ra bàn cờ vua</p>
+    </div>
+    <div class="baitap-2">
+        <p>Tạo ra đèn giao thông</p>
+    </div>
+</body>
+</html>
