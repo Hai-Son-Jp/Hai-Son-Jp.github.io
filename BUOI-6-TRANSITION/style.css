@@ -1,0 +1,147 @@
+/* *,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+ */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+body {
+    background-color: darkkhaki;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    box-shadow: 2px 2px 4px gray;
+    position: relative;
+    overflow: hidden;
+    width: 550px;
+    height: 730px;
+    margin: auto;
+    margin-top: 25%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-content: flex-end;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all;
+    transition-duration: 1s;
+}
+
+.picture {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transition: all;
+    transition-duration: 1s;
+}
+
+.picture img {
+    width: 120%;
+    height: 70%;
+    transition: all;
+    transition-duration: 1s;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30px;
+    left: calc(100% - 110px);
+    width: 80px;
+    height: 80px;
+    background-color: #ff5542;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    height: 185px;
+    padding: 0 40px;
+    transition: all;
+    transition-duration: 1s;
+    background-color: white;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 31px;
+    color: #ff5542;
+}
+
+.text {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    font-size: 20px;
+    line-height: 1.75;
+    color: rgb(147, 147, 147);
+}
+
+.tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 50px;
+    background-color: #ff5542;
+    font-size: 20px;
+    color: white;
+}
+
+.footer {
+    background-color: white;
+}
+
+.footer-card {
+    margin-top: 20px;
+    margin-bottom: 45px;
+    margin-left: 40px;
+    font-size: 18px;
+    color: rgb(147, 147, 147);
+}
+
+.footer-card span:first-child {
+    margin-right: 20px;
+}
+
+.card:hover .content {
+    height: 319px;
+}
+
+.card:hover img {
+    filter: brightness(0.5);
+    width: 130%;
+}
+
+.card:hover .picture {
+    left: -5%;
+}
