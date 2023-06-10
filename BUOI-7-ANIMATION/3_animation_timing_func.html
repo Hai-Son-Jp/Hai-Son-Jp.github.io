@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <style type="text/css">
+            body {
+                background-color: #F5F5F5;
+                color: #555;
+                font-size: 1.1em;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            }
+
+            .container {
+                margin: 50px auto;
+                max-width: 700px;
+                padding: 30px;
+                border: 1px solid #aaa;
+                background-color: white;
+            }
+
+            .element {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+
+            .element-1 {
+                background-color: #009966;
+            }
+
+            .element-2 {
+                background-color: purple;
+            }
+
+            .container:hover .element-1 {
+                animation-name: zigzag;
+                animation-duration: 3s;
+                animation-timing-function: linear;
+            }
+
+            .container:hover .element-2 {
+                animation-name: controlled-zigzag;
+                animation-duration: 3s;
+            }
+
+            @keyframes zigzag {
+                from {
+                    left: 0;
+                    top: 0;
+                }
+                15% {
+                    left: 50px;
+                    top: -50px;
+                }
+                30% {
+                    left: 100px;
+                    top: 0;
+                }
+                45% {
+                    left: 150px;
+                    top: -50px;
+                }
+                60% {
+                    left: 200px;
+                    top: 0;
+                }
+                75% {
+                    left: 250px;
+                    top: -50px;
+                }
+                100% {
+                    left: 300px;
+                    top: 0;
+                }
+            }
+
+            @keyframes controlled-zigzag {
+                from {
+                    left: 0;
+                    top: 0;
+                    animation-timing-function: ease-out;
+                }
+                15% {
+                    left: 50px;
+                    top: -50px;
+                    animation-timing-function: ease-in;
+                }
+                30% {
+                    left: 100px;
+                    top: 0;
+                    animation-timing-function: ease-out;
+                }
+                45% {
+                    left: 150px;
+                    top: -50px;
+                    animation-timing-function: ease-in;
+                }
+                60% {
+                    left: 200px;
+                    top: 0;                   
+                    animation-timing-function: ease-out;
+                }
+                75% {
+                    left: 250px;
+                    top: -50px;
+                    animation-timing-function: ease-in;
+                }
+                90% {
+                    left: 300px;
+                    top: 0;
+                    animation-timing-function: ease-out;
+                }
+                100% {
+                    left: 0;
+                    top: 0;
+                }
+            }
+                    
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <p>Hover over the container to see the elements animate.</p>
+            <p>animation timing function applied to entire animation cycle</p>
+            <div class="element element-1"></div>
+          </div>
+          <div class="container">
+            <p>
+              Animation timing functions applied to individual keyframes
+            </p>
+            <div class="element element-2"></div>
+          </div>
+    </body>
+</html>

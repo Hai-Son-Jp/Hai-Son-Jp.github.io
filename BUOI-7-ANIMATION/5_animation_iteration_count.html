@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <style type="text/css">
+            body {
+                background-color: #F5F5F5;
+                color: #555;
+                font-size: 1.1em;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            }
+
+            hr {
+                margin: 50px 0;
+            }
+
+            .container {
+                margin: 50px auto;
+                width: 90%;
+                max-width: 700px;
+                padding: 30px;
+                border: 1px solid #aaa;
+                background-color: white;
+                position: relative;
+            }
+
+            .element {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                position: absolute;
+                animation-iteration-count: infinite;
+                top: 0;
+                left: 0;
+            }
+
+            .container:hover .element {
+                animation-name: zigzag;
+                animation-duration: 3s;
+                animation-direction: alternate;  
+                animation-timing-function: linear;
+            }
+
+            .element-1 {
+                background-color: #009966;
+                animation-delay: 0s;
+            }
+
+            .element-2 {
+                background-color: purple;
+                animation-delay: 0.25s;
+            }
+
+            .element-3 {
+                background-color: orange;
+                animation-delay: 0.5s;
+            }
+
+            .element-4 {
+                background-color: #0099CC;
+                animation-delay: 0.75s;
+            }
+            .element-5 {
+                background-color: #009966;
+                animation-delay: 1s;
+            }
+
+            .element-6 {
+                background-color: purple;
+                animation-delay: 1.25s;
+            }
+
+            .element-7 {
+                background-color: orange;
+                animation-delay: 1.5s;
+            }
+
+            .element-8 {
+                background-color: #0099CC;
+                animation-delay: 1.75s;
+            }
+
+            @keyframes zigzag {
+                from {
+                    left: 0;
+                    top: 0;
+                }
+                15% {
+                    left: 15%;
+                    top: -50px;
+                }
+                30% {
+                    left: 30%;
+                    top: 0;
+                }
+                45% {
+                    left: 45%;
+                    top: -50px;
+                }
+                60% {
+                    left: 60%;
+                    top: 0;
+                }
+                75% {
+                    left: 75%;
+                    top: -50px;
+                }
+                100% {
+                    left: 100%;
+                    top: 0;
+                }
+                }
+                    
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="element element-1"></div>
+            <div class="element element-2"></div>
+            <div class="element element-3"></div>
+            <div class="element element-4"></div>
+            <div class="element element-5"></div>
+            <div class="element element-6"></div>
+            <div class="element element-7"></div>
+            <div class="element element-8"></div>
+        </div>
+    </body>
+</html>
