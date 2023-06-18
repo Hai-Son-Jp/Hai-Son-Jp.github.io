@@ -32,5 +32,6 @@
     "diffEditor.renderMarginRevertIcon": true,
     "diffEditor.renderIndicators": true,
     "editor.experimentalWhitespaceRendering": "svg",
-    "editor.colorDecorators": false
+    "editor.colorDecorators": false,
+    "livePreview.defaultPreviewPath": "/BUOI-9-JAVASCRIPT-BASIC/layout.html"
 }
