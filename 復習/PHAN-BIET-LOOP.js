@@ -4,6 +4,15 @@ for (let i = 0; i < 5; i++) {
 }
 /* Sử dụng vòng lặp for khi biết được số lần lặp cụ thể
  hoặc cần duyệt qua các phần tử trong một mảng hay chuỗi. */
+function reverseString(s) {
+    let result = '';
+    for (let i = s.length - 1; i >= 0; i--) {
+        //vòng lặp đếm ngược, dùng để điếm string
+        result = result + s[i];
+    }
+    return result;
+}
+console.log(reverseString('dang hai son'));
 
 //WHILE
 

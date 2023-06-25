@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="h-screen" style="margin-left: 100px; font-size: 30px">
+        <h1>Hello world !</h1>
+        <script>
+            function draw_shape(numRow, numColumn, typeMap) {
+                let html = '';
+                switch (typeMap) {
+                    case 1:
+                        for (let i = 1; i <= numRow; i++) {
+                            let row = '';
+                            for (let j = 1; j <= numColumn; j++) {
+                                if (i == 1 && j == 1) row += "<span style='color:blue;'>* </span>";
+                                else row += '* ';
+                            }
+                            html += '<div>' + row + '</div>' + '\n';
+                            //console.log(html);
+                        }
+                        break;
+                    case 2:
+                        for (let i = 1; i <= numRow; i++) {
+                            let row = '';
+                            if (i == 1 || i == numRow) {
+                                for (let j = 1; j <= numColumn; j++) {
+                                    row += "<span style='width: 30px;text-align:center;display:inline-block;'>*</span>";
+                                }
+                            } else {
+                                for (let j = 1; j <= numColumn; j++) {
+                                    if (j == 1 || j == numColumn)
+                                        row +=
+                                            "<span style='width: 30px;text-align:center;display:inline-block;'>*</span>";
+                                    else
+                                        row +=
+                                            "<span style='width: 30px;text-align:center;display:inline-block;'>&nbsp</span>";
+                                }
+                            }
+                            html += '<div>' + row + '</div>' + '\n';
+                            console.log(html);
+                        }
+                    case 3:
+                        for (let i = 1; i <= numRow; i++) {
+                            let row = '';
+                            for (let j = 1; j <= numColumn; j++) {
+                                if (i == j || i + j == numRow + 1) {
+                                    row += "<span style='width: 30px;text-align:center;display:inline-block;'>*</span>";
+                                } else {
+                                    row +=
+                                        "<span style='width: 30px;text-align:center;display:inline-block;'>&nbsp</span>";
+                                }
+                            }
+                            html += '<div>' + row + '</div>' + '\n';
+                            console.log(html);
+                        }
+                    case 4:
+                        for (let i = 1; i <= numRow; i++) {
+                            let row = '';
+                            for (let j = 1; j <= i; j++)
+                                row += "<span style='width: 30px;text-align:center;display:inline-block;'>*</span>";
+                            html += '<div>' + row + '</div>' + '\n';
+                            console.log(html);
+                        }
+                    default:
+                        break;
+                }
+                document.write(html);
+            }
+
+            draw_shape(5, 4, 1);
+            draw_shape(5, 4, 2);
+            draw_shape(7, 7, 3);
+            draw_shape(6, 6, 4);
+        </script>
+    </body>
+</html>
