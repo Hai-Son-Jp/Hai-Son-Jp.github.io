@@ -1,15 +1,26 @@
-// bài mau
-function subString(string, n) {
-    for (let i = 0; i <= string.length - n; i++) {
-        console.log('-------------------------------------');
+function subString(string, m) {
+    for (let i = 0; i <= string.length - m; i++) {
         console.log(i);
         let sub_Str = '';
-        for (let j = i; j <= i + n - 1; j++) {
-            console.log('-----------', j, sub_Str);
+        for (let j = i; j <= i + m - 1; j++) {
             sub_Str = sub_Str + string[j];
-            console.log('++++++++++', j, sub_Str);
+        }
+    }
+    return sub_Str;
+}
+function checkstringExist(string, subString) {
+    let ans = false;
+    for (let i = 0; i <= string.length - subString.length; i++) {
+        let sub_Str = '';
+        for (let j = i; j <= i + subString.length - 1; j++) {
+            sub_Str = sub_Str + string[j];
         }
         console.log(sub_Str);
+        if (sub_Str === subString) {
+            ans = true;
+            break;
+        }
     }
+    return ans;
 }
-subString('qwerty', 3);
+console.log(subString('i love you', 'you'));
