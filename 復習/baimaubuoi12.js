@@ -1,14 +1,14 @@
-function subString(string, m) {
-    for (let i = 0; i <= string.length - m; i++) {
-        console.log(i);
-        let sub_Str = '';
-        for (let j = i; j <= i + m - 1; j++) {
+function subString(string, n) {
+    for (let i = 0; i <= string.length - n; i++) {
+        sub_Str = '';
+        for (let j = i; j < i + n; j++) {
             sub_Str = sub_Str + string[j];
         }
     }
     return sub_Str;
 }
-function checkstringExist(string, subString) {
+console.log(subString('i love', 3)); // in ra các chuỗi con có độ dài 3
+/* function checkstringExist(string, subString) {
     let ans = false;
     for (let i = 0; i <= string.length - subString.length; i++) {
         let sub_Str = '';
@@ -22,5 +22,4 @@ function checkstringExist(string, subString) {
         }
     }
     return ans;
-}
-console.log(subString('i love you', 'you'));
+} */
