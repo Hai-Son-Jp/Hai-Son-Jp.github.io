@@ -23,10 +23,12 @@ console.log('Số lớn thứ 2 trong mảng là:', soLon_thu2);
 -Khởi tạo biến secondMax với giá trị ban đầu là -Infinity, đại diện cho số lớn thứ hai đã tìm thấy.
 -Sử dụng vòng lặp for để duyệt qua từng số trong mảng arr.
 -Kiểm tra nếu số hiện tại arr[i] lớn hơn max, thì cập nhật giá trị của secondMax thành max, và cập nhật giá trị của max thành arr[i].
--Trường hợp không thỏa điều kiện trên, kiểm tra nếu số hiện tại arr[i] nhỏ hơn max và lớn hơn secondMax, thì cập nhật giá trị của secondMax thành arr[i].
+-Trường hợp không thỏa điều kiện trên, kiểm tra nếu số hiện tại arr[i] nhỏ hơn max và lớn hơn secondMax, 
+thì cập nhật giá trị của secondMax thành arr[i].
 -Sau khi duyệt qua toàn bộ mảng, secondMax sẽ chứa số lớn thứ hai trong mảng.
 -Trả về giá trị của secondMax.
--Cuối cùng, một mảng arr được khởi tạo và truyền vào hàm tim_so_lon_thu_2 để tìm số lớn thứ hai. Kết quả được gán vào biến soLon_thu2 và hiển thị trên console.
+-Cuối cùng, một mảng arr được khởi tạo và truyền vào hàm tim_so_lon_thu_2 để tìm số lớn thứ hai. 
+Kết quả được gán vào biến soLon_thu2 và hiển thị trên console.
 */
 
 //Bài 2: Viết function truyền vào mảng các chuỗi có độ dài bất kỳ. Kết quả trả về là 1 mảng các chuỗi có độ dài lớn nhất.
