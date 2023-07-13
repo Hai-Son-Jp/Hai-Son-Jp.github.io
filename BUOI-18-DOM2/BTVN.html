@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BTVN</title>
+        <style>
+            ul {
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="inputText" placeholder="Enter text" />
+        <button id="addButton">Add</button>
+        <button id="removeButton">Remove</button>
+        <button id="hideButton">Hide</button>
+
+        <ul id="list"></ul>
+
+        <script>
+            // Lấy các phần tử DOM
+            const inputText = document.getElementById('inputText');
+            const addButton = document.getElementById('addButton');
+            const removeButton = document.getElementById('removeButton');
+            const hideButton = document.getElementById('hideButton');
+            const list = document.getElementById('list');
+
+            // Xử lý sự kiện click vào nút Add
+            addButton.addEventListener('click', function () {
+                const text = inputText.value.trim();
+                // Kiểm tra nội dung input
+                if (text === '') {
+                    alert('Vui lòng nhập nội dung.');
+                    return;
+                }
+                // Tạo phần tử li mới và thêm vào danh sách
+                const li = document.createElement('li');
+                li.textContent = text;
+                list.appendChild(li);
+                // Xóa nội dung input
+                inputText.value = '';
+            });
+
+            // Xử lý sự kiện click vào nút Remove
+            removeButton.addEventListener('click', function () {
+                const liList = list.getElementsByTagName('li');
+                const lastLi = liList[liList.length - 1];
+                if (lastLi) {
+                    list.removeChild(lastLi);
+                }
+            });
+
+            // Xử lý sự kiện click vào nút Hide/Show
+            hideButton.addEventListener('click', function () {
+                if (list.style.display === 'none') {
+                    list.style.display = 'block';
+                    hideButton.textContent = 'Hide';
+                } else {
+                    list.style.display = 'none';
+                    hideButton.textContent = 'Show';
+                }
+            });
+        </script>
+    </body>
+</html>
