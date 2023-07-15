@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #d3cce3;
+    background: -webkit-linear-gradient(to bottom, #e9e4f0, #d3cce3);
+    background: linear-gradient(to bottom, #e9e4f0, #d3cce3);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.testimonials-container {
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 50px 50px;
+    transition: all 0.3s ease-in;
+    margin: 20px;
+    max-width: 100%;
+    /*     background-color: #ff225c;
+    box-shadow: 0px 40px 9px -25px #ff396a; */
+}
+
+.fa-quote-left {
+    color: rgba(0, 0, 0, 0.15);
+    font-size: 50px;
+}
+
+.text {
+    line-height: 30px;
+    margin: 40px 0 20px;
+    min-height: 0px;
+    max-width: 600px;
+    text-align: justify;
+    word-spacing: 5px;
+    transition: all 0.3s ease-in;
+}
+
+.name {
+    align-self: flex-end;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.authors-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.author {
+    margin: 30px 30px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.author img {
+    transition: all 0.3s ease-in;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.author:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.author.selected img {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.4);
+    position: relative;
+    animation-name: beat;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.26, 0.21, 0.77, 1.64);
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1);
+    }
+    85% {
+        transform: scale(1.8);
+    }
+    100% {
+        transform: scale(1.4);
+    }
+}
