@@ -90,13 +90,15 @@ function updateSummary() {
 function handleOnChangeQuantity(id, price) {
     let quantity = document.getElementById('products_' + id).value;
     if (quantity <= 0) {
-        document.getElementById('price_' + id).innerHTML = 'Vui lòng không nhập số lượng âm';
+        document.getElementById('price_' + id).innerHTML = 'Vui lòng nhập số lượng hợp lệ';
+        return;
     } else {
         let newPrice = quantity * price;
         document.getElementById('price_' + id).innerHTML = '$' + newPrice;
     }
     updateSummary();
 }
+
 updateSummary();
 
 // Hàm xử lý việc áp dụng mã giảm giá

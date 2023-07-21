@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todolist App</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .container {
+                width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            input[type='text'] {
+                border-radius: 10px;
+                width: 95%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+            }
+
+            button {
+                padding: 10px 20px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 5px;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .hoanThanh {
+                color: darkred;
+                text-decoration: line-through;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Todolist</h1>
+            <input type="text" id="nhapCongViec" placeholder="Enter your task..." />
+            <button onclick="themCongViec()">Add</button>
+            <ul id="taskList"></ul>
+        </div>
+        <script>
+            var danhSachCongViec = [];
+            function hienThiDanhSachCongViec() {
+                let html = '';
+                if (danhSachCongViec.length === 0) {
+                    html = 'Danh sách công việc trống';
+                } else {
+                    for (let i = 0; i < danhSachCongViec.length; i++) {
+                        const congViec = danhSachCongViec[i];
+                        html += `
+                            <li id="congViec_${congViec.id}">
+                                <input type="checkbox" onclick="chuyenTrangThaiHoanThanh(${congViec.id})" ${
+                            congViec.trangThai ? 'checked' : ''
+                        }>
+                                <span class="tieuDe_${congViec.id} ${congViec.trangThai ? 'hoanThanh' : ''}">${
+                            congViec.tieuDe
+                        }</span>
+                                <button onclick="chinhSuaCongViec(${congViec.id})">Chỉnh Sửa</button>
+                                <button onclick="xoaCongViec(${congViec.id})">Xóa</button>
+                            </li>
+                        `;
+                    }
+                }
+                document.getElementById('taskList').innerHTML = html;
+            }
+
+            // Thêm công việc
+            function themCongViec() {
+                const nhapCongViec = document.getElementById('nhapCongViec');
+                const tieuDeMoi = nhapCongViec.value.trim();
+                if (tieuDeMoi === '') {
+                    alert('Vui lòng nhập công việc!');
+                    return;
+                }
+                const congViecMoi = {
+                    id: danhSachCongViec.length + 1,
+                    tieuDe: tieuDeMoi,
+                    trangThai: false,
+                };
+                danhSachCongViec.push(congViecMoi);
+                hienThiDanhSachCongViec();
+                nhapCongViec.value = '';
+            }
+
+            // Lắng nghe sự kiện nút Enter trong ô input
+            function xuLyNhanEnter(event) {
+                if (event.key === 'Enter') {
+                    themCongViec();
+                }
+            }
+            const nhapCongViec = document.getElementById('nhapCongViec');
+            nhapCongViec.addEventListener('keypress', xuLyNhanEnter);
+
+            // Xóa công việc
+            function xoaCongViec(congViecId) {
+                console.log(congViecId); //check mã định danh
+                const viTri = danhSachCongViec.findIndex((congViec) => congViec.id === congViecId);
+                if (viTri === -1) {
+                    return;
+                }
+                danhSachCongViec.splice(viTri, 1);
+                hienThiDanhSachCongViec();
+            }
+
+            // Chỉnh sửa công việc
+            function chinhSuaCongViec(congViecId) {
+                console.log(congViecId); //check mã định danh
+                const congViec = danhSachCongViec.find((congViec) => congViec.id === congViecId);
+                if (!congViec) {
+                    return;
+                }
+                const tieuDeMoi = window.prompt('Nhập tiêu đề mới cho công việc:', congViec.tieuDe);
+                if (tieuDeMoi === null) {
+                    return;
+                }
+                congViec.tieuDe = tieuDeMoi.trim();
+                hienThiDanhSachCongViec();
+            }
+
+            // Chuyển trạng thái hoàn thành
+            function chuyenTrangThaiHoanThanh(congViecId) {
+                console.log(congViecId); //check mã định danh
+                const congViec = danhSachCongViec.find((congViec) => congViec.id === congViecId);
+                if (!congViec) {
+                    return;
+                }
+                congViec.trangThai = !congViec.trangThai;
+                const congViecElement = document.getElementById(`congViec_${congViecId}`);
+                if (congViecElement) {
+                    const checkbox = congViecElement.querySelector('input[type="checkbox"]');
+                    const tieuDeSpan = congViecElement.querySelector('span');
+                    if (congViec.trangThai) {
+                        checkbox.checked = true;
+                        tieuDeSpan.classList.add('hoanThanh');
+                    } else {
+                        checkbox.checked = false;
+                        tieuDeSpan.classList.remove('hoanThanh');
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
