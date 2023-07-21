@@ -1,56 +1,93 @@
-const todoList = [
-    {
-        id: 1,
-        title: 'Làm việc nhà',
-        status: true,
-    },
-    {
-        id: 2,
-        title: 'Nhậu',
-        status: false,
-    },
-    {
-        id: 3,
-        title: 'Chơi Game',
-        status: true,
-    },
-];
+var todoList = [];
 
-const taskInput = document.getElementById('taskInput');
-const taskList = document.getElementById('taskList');
-
-const renderTodoList = () => {
-    taskList.innerHTML = ''; //Xóa hết nội dung trước khi render
-    // Th1 không có todo trong danh sách
-    if (todoList.length === 0) {
-        taskList.insertAdjacentHTML('afterbegin', '<li>Danh sách công việc trống</li>');
-        return;
-    }
-
-    // Th2 có todo trong danh sách
+function renderTodoList() {
     let html = '';
-    todoList.forEach((t) => {
-        html += `
-        <li>
-            <input type="checkbox" ${t.status ? 'checked' : ''}>
-            <span class="${t.status ? 'active' : ''}">${t.title}</span>
-            <button>Edit</button>
-            <button>Delete</button>
-        </li>
+    if (todoList.length === 0) {
+        html = 'Danh sách công việc trống';
+    } else {
+        for (let i = 0; i < todoList.length; i++) {
+            const task = todoList[i];
+            html += `
+            <li id="task_${task.id}">
+                <input type="checkbox" onclick="toggleCompleted(${task.id})" ${task.status ? 'checked' : ''}>
+                <span class="title_${task.id} ${task.status ? 'active' : ''}">${task.title}</span>
+                <button onclick="editTask(${task.id})">Edit</button>
+                <button onclick="deleteTask(${task.id})">Delete</button>
+            </li>
         `;
-    });
-    taskList.innerHTML = html;
-};
-
-function editTask(taskElement, taskSpan) {
-    const newTaskText = prompt('Edit task:', taskSpan.innerText);
-    if (newTaskText !== null && newTaskText.trim() !== '') {
-        taskSpan.innerText = newTaskText;
+        }
     }
+    document.getElementById('taskList').innerHTML = html;
 }
 
-function deleteTask(taskElement) {
-    if (confirm('Are you sure you want to delete this task?')) {
-        taskElement.remove();
+//Add button
+function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const newTaskTitle = taskInput.value.trim();
+    if (newTaskTitle === '') {
+        alert('Vui lòng nhập công việc!');
+        return;
+    }
+    const newTask = {
+        id: todoList.length + 1,
+        title: newTaskTitle,
+        status: false,
+    };
+    todoList.push(newTask);
+    renderTodoList();
+    taskInput.value = '';
+}
+
+// Lắng nghe sự kiện nút Enter trong ô input
+function handleEnterKeyPress(event) {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+}
+const taskInput = document.getElementById('taskInput');
+taskInput.addEventListener('keypress', handleEnterKeyPress);
+
+//Delete button
+function deleteTask(taskId) {
+    const index = todoList.findIndex((task) => task.id === taskId);
+    if (index === -1) {
+        return;
+    }
+    todoList.splice(index, 1);
+    renderTodoList();
+}
+
+//Edit button
+function editTask(taskId) {
+    const task = todoList.find((task) => task.id === taskId);
+    if (!task) {
+        return;
+    }
+    const newTitle = window.prompt('Nhập tiêu đề mới cho công việc:', task.title);
+    if (newTitle === null) {
+        return;
+    }
+    task.title = newTitle.trim();
+    renderTodoList();
+}
+
+// Checkbox function
+function toggleCompleted(taskId) {
+    const task = todoList.find((task) => task.id === taskId);
+    if (!task) {
+        return;
+    }
+    task.status = !task.status;
+    const taskElement = document.getElementById(`task_${taskId}`);
+    if (taskElement) {
+        const checkbox = taskElement.querySelector('input[type="checkbox"]');
+        const span = taskElement.querySelector('span');
+        if (task.status) {
+            checkbox.checked = true;
+            span.classList.add('active');
+        } else {
+            checkbox.checked = false;
+            span.classList.remove('active');
+        }
     }
 }
