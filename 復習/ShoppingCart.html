@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Shopping Cart</title>
+        <title>Giỏ Hàng</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
             href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
@@ -16,523 +16,516 @@
             crossorigin="anonymous" />
         <style>
             *,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: inherit;
+            }
 
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-}
+            html {
+                font-size: 62.5%;
+                box-sizing: border-box;
+            }
 
-body {
-    padding: 2rem 4rem;
-    line-height: 1.7;
-    font-family: 'Nunito Sans', sans-serif;
-    color: #555;
-    min-height: 100vh;
-    background-image: linear-gradient(to bottom right, #67b26f, #4ca2cd);
-}
+            body {
+                padding: 2rem 4rem;
+                line-height: 1.7;
+                font-family: 'Nunito Sans', sans-serif;
+                color: #555;
+                min-height: 100vh;
+                background-image: linear-gradient(to bottom right, #67b26f, #4ca2cd);
+            }
 
-img {
-    max-width: 100%;
-    vertical-align: middle;
-    border-radius: 4px;
-}
+            img {
+                max-width: 100%;
+                vertical-align: middle;
+                border-radius: 4px;
+                margin-right: 10px;
+            }
 
-a {
-    text-decoration: none;
-    color: #333333;
-}
+            a {
+                text-decoration: none;
+                color: #333333;
+            }
 
-a:hover {
-    color: #f58551;
-}
+            a:hover {
+                color: #f58551;
+            }
 
-button {
-    background-color: #16cc9b;
-    border: 2px solid #16cc9b;
-    color: #ffffff;
-    transition: all 0.25s linear;
-    cursor: pointer;
-}
+            button {
+                background-color: #16cc9b;
+                border: 2px solid #16cc9b;
+                color: #ffffff;
+                transition: all 0.25s linear;
+                cursor: pointer;
+            }
 
-button::after {
-    position: relative;
-    right: 0;
-    content: ' \276f';
-    transition: all 0.15s linear;
-}
+            button::after {
+                position: relative;
+                right: 0;
+                content: ' \276f';
+                transition: all 0.15s linear;
+            }
 
-button:hover {
-    background-color: #f58551;
-    border-color: #f58551;
-}
+            button:hover {
+                background-color: #f58551;
+                border-color: #f58551;
+            }
 
-button:hover::after {
-    right: -5px;
-}
+            button:hover::after {
+                right: -5px;
+            }
 
-button:focus {
-    outline: none;
-}
+            button:focus {
+                outline: none;
+            }
 
-ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+            }
 
-input {
-    transition: all 0.25s linear;
-}
+            input {
+                transition: all 0.25s linear;
+            }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
-}
+            input[type='number']::-webkit-inner-spin-button,
+            input[type='number']::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 0;
+            }
 
-input {
-    outline: none;
-}
+            input {
+                outline: none;
+            }
 
-.container {
-    width: 90%;
-    margin: 0 auto;
-    overflow: auto;
-}
+            .thanh-gio-hang {
+                width: 90%;
+                margin: 0 auto;
+                overflow: auto;
+            }
 
-/* --- HEADER --- */
-header h1 {
-    font-family: 'Bungee Inline', sans-serif;
-    font-weight: 400;
-    font-size: 3rem;
-    color: white;
-    margin-bottom: 2rem;
-    text-align: center;
-    word-spacing: 3px;
-}
+            /* --- HEADER --- */
+            .tieu-de h1 {
+                font-family: 'Bungee Inline', sans-serif;
+                font-weight: 400;
+                font-size: 3rem;
+                color: white;
+                margin-bottom: 2rem;
+                text-align: center;
+                word-spacing: 3px;
+            }
 
-header.container {
-    margin-bottom: 1.5rem;
-}
+            .tieu-de .duong-dan li {
+                float: left;
+                padding: 0 6px;
+            }
 
-header .breadcrumb li {
-    float: left;
-    padding: 0 6px;
-}
+            .tieu-de .duong-dan li:first-child {
+                padding-left: 2px;
+            }
 
-header .breadcrumb li:first-child {
-    padding-left: 2px;
-}
+            .tieu-de .duong-dan li:not(:last-child)::after {
+                content: ' \276f';
+                padding-left: 8px;
+            }
 
-header .breadcrumb li:not(:last-child)::after {
-    content: ' \276f';
-    padding-left: 8px;
-}
+            .tieu-de .so-luong {
+                float: right;
+            }
 
-header .count {
-    float: right;
-}
+            /* --- PRODUCT LIST --- */
+            .san-pham {
+                border-top: 1px solid #ddd;
+            }
 
-/* --- PRODUCT LIST --- */
-.products {
-    border-top: 1px solid #ddd;
-}
+            .san-pham > li {
+                padding: 1rem 0;
+                background-color: #fff;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
 
-.products > li {
-    padding: 1rem 0;
-    background-color: #fff;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
+            .dong {
+                display: flex;
+            }
 
-.row {
-    display: flex;
-}
+            .cot.trai {
+                flex-basis: 70%;
+            }
 
-.col.left {
-    flex-basis: 70%;
-}
+            .cot.phai {
+                flex-basis: 30%;
+                display: flex;
+                align-items: center;
+            }
 
-.col.right {
-    flex-basis: 30%;
-    display: flex;
-    align-items: center;
-}
+            .chi-tiet {
+                padding: 0 0.5rem;
+                line-height: 2.2rem;
+            }
 
-.detail {
-    padding: 0 0.5rem;
-    line-height: 2.2rem;
-}
+            .chi-tiet .ten {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
 
-.detail .name {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
+            .chi-tiet .mo-ta {
+                font-size: 1rem;
+                margin: 0.7rem 0;
+                line-height: 1.4;
+            }
 
-.detail .description {
-    font-size: 1rem;
-    margin: 0.7rem 0;
-    line-height: 1.4;
-}
+            .chi-tiet .gia {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
 
-.detail .price {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
+            .so-luong,
+            .xoa {
+                width: 50%;
+                text-align: center;
+            }
 
-.quantity,
-.remove {
-    width: 50%;
-    text-align: center;
-}
+            .so-luong > input {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                position: relative;
+                left: calc(50% - 30px);
+                background: #fff;
+                border: 2px solid #ddd;
+                border-radius: 50%;
+                text-align: center;
+                font: 600 1.5rem Helvetica, Arial, sans-serif;
+            }
 
-.quantity > input {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    position: relative;
-    left: calc(50% - 30px);
-    background: #fff;
-    border: 2px solid #ddd;
-    text-align: center;
-    font: 600 1.5rem Helvetica, Arial, sans-serif;
-}
+            .so-luong > input:hover,
+            .so-luong > input:focus {
+                border-color: #f58551;
+            }
 
-.quantity > input:hover,
-.quantity > input:focus {
-    border-color: #f58551;
-}
+            .dong .xoa svg {
+                width: 40px;
+                height: 40px;
+            }
 
-.close {
-    cursor: pointer;
-    font-size: 1.5rem;
-}
+            /* --- SUMMARY --- */
+            .khuyen-mai,
+            .tong-tien,
+            .thanh-toan {
+                float: left;
+                width: 100%;
+                margin-top: 1.5rem;
+            }
 
-.close:hover {
-    color: #f58551;
-}
+            .khuyen-mai > label {
+                float: left;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
 
-/* --- SUMMARY --- */
-.promotion,
-.summary,
-.checkout {
-    float: left;
-    width: 100%;
-    margin-top: 1.5rem;
-}
+            .khuyen-mai > input {
+                float: left;
+                width: 80%;
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+                border: 2px solid #16cc9b;
+            }
 
-.promotion > label {
-    float: left;
-    width: 100%;
-    margin-bottom: 1rem;
-}
+            .khuyen-mai > input:hover {
+                border-color: #f58551;
+            }
 
-.promotion > input {
-    float: left;
-    width: 80%;
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border: 2px solid #16cc9b;
-}
+            .khuyen-mai > button {
+                float: left;
+                width: 20%;
+                padding: 1rem 1.5rem;
+            }
 
-.promotion:hover > input {
-    border-color: #f58551;
-}
+            .khuyen-mai > button:hover {
+                border-color: #f58551;
+                background-color: #f58551;
+            }
 
-.promotion > button {
-    float: left;
-    width: 20%;
-    padding: 1rem 0.5rem;
-}
+            .khuyen-mai > button::after {
+                content: '\276f';
+                font-size: 1rem;
+            }
 
-.promotion:hover > button {
-    border-color: #f58551;
-    background-color: #f58551;
-}
+            .tong-tien {
+                font-size: 1.2rem;
+                text-align: right;
+            }
 
-.promotion > button::after {
-    content: '\276f';
-    font-size: 1rem;
-}
+            .tong-tien ul li {
+                padding: 0.5rem 0;
+            }
 
-.summary {
-    font-size: 1.2rem;
-    text-align: right;
-}
+            .tong-tien ul li span {
+                display: inline-block;
+                width: 30%;
+            }
 
-.summary ul li {
-    padding: 0.5rem 0;
-}
+            .tong-tien ul li.tong-tien-sau-giam-gia {
+                font-weight: bold;
+            }
 
-.summary ul li span {
-    display: inline-block;
-    width: 30%;
-}
+            .thong-bao-loi {
+                color: darkred;
+                font-size: 25px;
+            }
 
-.summary ul li.total {
-    font-weight: bold;
-}
+            /* --- SMALL SCREEN --- */
+            @media all and (max-width: 599px) {
+                .thumbnail img {
+                    display: none;
+                }
 
-.hide {
-    display: none !important;
-}
+                .quantity > input {
+                    width: 40px;
+                    height: 40px;
+                    left: calc(50% - 20px);
+                }
 
-.error-message {
-    color: darkred;
-    font-size: 25px;
-}
+                .remove svg {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
 
-/* --- SMALL SCREEN --- */
-@media all and (max-width: 599px) {
-    .thumbnail img {
-        display: none;
-    }
+            /* --- MEDIUM & LARGE SCREEN --- */
+            @media all and (min-width: 600px) {
+                html {
+                    font-size: 14px;
+                }
 
-    .quantity > input {
-        width: 40px;
-        height: 40px;
-        left: calc(50% - 20px);
-    }
+                .container {
+                    width: 75%;
+                    max-width: 960px;
+                }
 
-    .remove svg {
-        width: 40px;
-        height: 40px;
-    }
-}
+                .thumbnail,
+                .detail {
+                    float: left;
+                }
 
-/* --- MEDIUM & LARGE SCREEN --- */
-@media all and (min-width: 600px) {
-    html {
-        font-size: 14px;
-    }
+                .thumbnail {
+                    width: 30%;
+                }
 
-    .container {
-        width: 75%;
-        max-width: 960px;
-    }
+                .detail {
+                    width: 65%;
+                    padding: 0 1rem;
+                }
 
-    .thumbnail,
-    .detail {
-        float: left;
-    }
+                .promotion,
+                .summary {
+                    width: 50%;
+                }
 
-    .thumbnail {
-        width: 30%;
-    }
+                .checkout {
+                    width: 100%;
+                }
 
-    .detail {
-        width: 65%;
-        padding: 0 1rem;
-    }
+                .checkout,
+                .summary {
+                    text-align: right;
+                }
+            }
 
-    .promotion,
-    .summary {
-        width: 50%;
-    }
-
-    .checkout {
-        width: 100%;
-    }
-
-    .checkout,
-    .summary {
-        text-align: right;
-    }
-}
-
-/* --- LARGE SCREEN --- */
-@media all and (min-width: 992px) {
-    html {
-        font-size: 16px;
-    }
-}
+            /* --- LARGE SCREEN --- */
+            @media all and (min-width: 992px) {
+                html {
+                    font-size: 16px;
+                }
+            }
         </style>
     </head>
     <body>
         <main>
             <header class="container">
-                <h1>Shopping Cart</h1>
-
+                <h1>Giỏ Hàng</h1>
                 <ul class="breadcrumb">
-                    <li>Home</li>
-                    <li>Shopping Cart</li>
+                    <li>Trang chủ</li>
+                    <li>Giỏ Hàng</li>
                 </ul>
-
-                <!-- Total product -->
-                <span class="count">3 items in the bag</span>
+                <span class="count">3 sản phẩm trong giỏ hàng</span>
             </header>
             <section class="container">
-                <ul class="products" id="products"</ul>
+                <ul class="san-pham" id="san-pham"></ul>
             </section>
             <section class="option-container container">
                 <!-- Mã giảm giá -->
-                <div class="promotion">
-                    <label for="promo-code">Have A Promo Code?</label>
-                    <input type="text" id="promo-code" autocomplete="off" />
-                    <button type="button" onclick="applyPromoCode()"></button>
+                <div class="khuyen-mai">
+                    <label for="ma-giam-gia">Có mã giảm giá?</label>
+                    <input type="text" id="ma-giam-gia" autocomplete="off" />
+                    <button type="button" onclick="apDungMaGiamGia()"></button>
                 </div>
                 <!-- Tổng tiền -->
-                <div class="summary">
+                <div class="tong-tien">
                     <ul>
-                        <li class="subtotal">Subtotal: <span id="subtotal_value"></span></li>
-                        <li class="vat">VAT:<span id="vat_value"></span></li>
-                        <li class="discount hide">Discount<span></span></li>
-                        <li class="total">Total: <span id="total_value"></span></li>
+                        <li class="tong-tien-truoc-giam-gia">
+                            Tổng tiền trước giảm giá: <span id="tong-tien-truoc-giam-gia_value"></span>
+                        </li>
+                        <li class="thue-vat">Thuế VAT: <span id="thue-vat_value"></span></li>
+                        <li class="giam-gia hide">Giảm giá: <span></span></li>
+                        <li class="tong-tien-sau-giam-gia">
+                            Tổng tiền sau giảm giá: <span id="tong-tien-sau-giam-gia_value"></span>
+                        </li>
                     </ul>
                 </div>
             </section>
         </main>
         <script>
-            var products = [
-    {
-        id: 1,
-        name: 'laptop Asus',
-        description: 'máy tinh asus',
-        price: 20,
-    },
-    {
-        id: 2,
-        name: 'laptop Acer',
-        description: 'máy tinh acer',
-        price: 19,
-    },
-    {
-        id: 3,
-        name: 'laptop Dell',
-        description: 'máy tinh dell',
-        price: 25,
-    },
-    {
-        id: 4,
-        name: 'laptop logitech',
-        description: 'máy tinh logitech',
-        price: 22,
-    },
-];
-// Mã giảm giá (promo code)
-var promoCode = '123456';
+            var danhSachSanPham = [
+                {
+                    id: 1,
+                    ten: 'Laptop Asus',
+                    moTa: 'Máy tính Asus',
+                    gia: 20,
+                },
+                {
+                    id: 2,
+                    ten: 'Laptop Acer',
+                    moTa: 'Máy tính Acer',
+                    gia: 19,
+                },
+                {
+                    id: 3,
+                    ten: 'Laptop Dell',
+                    moTa: 'Máy tính Dell',
+                    gia: 25,
+                },
+                {
+                    id: 4,
+                    ten: 'Laptop Logitech',
+                    moTa: 'Máy tính Logitech',
+                    gia: 22,
+                },
+            ];
 
-function renderUI() {
-    let html = '';
-    if (products.length === 0) {
-        html = ' Chưa có sản phẩm nào trong giỏ hàng';
-    } else {
-        for (let i = 0; i < products.length; i++) {
-            html += `<li class="row">
-            <div class="col left">
-                <div class="thumbnail">
-                    <a href="#"><img src="https://via.placeholder.com/200x150" alt="" /></a>
-                </div>
-                <div class="detail">
-                    <div class="name"><a href="#">${products[i].name}</a></div>
-                    <div class="description">${products[i].description}</div>
-                    <div class="price">$${products[i].price}</div>
-                    <div class="total-price" id="price_${products[i].id}"></div>
-                </div>
-            </div>
-            <div class="col right">
-                <div class="quantity">
-                    <input
-                    type="number"
-                    onkeyup="handleOnChangeQuantity(${products[i].id}, ${products[i].price})"
-                    class="product-quantity"
-                    id="products_${products[i].id}" 
-                    step="1" value="1" 
-                    />
-                </div>
-                <div class="remove">
-                    <span class="close"><i class="fa fa-times" aria-hidden="true"></i></span>
-                </div>
-            </div>
-        </li>`;
-        }
-    }
-    document.getElementById('products').innerHTML = html;
-}
-renderUI();
+            var maGiamGia = '123456';
 
-// Hàm tính tổng tiền các sản phẩm và cập nhật lại các giá trị trong phần summary
-const productsContainer = document.getElementById('products');
-function updateSummary() {
-    const productItems = productsContainer.children;
-    let subtotal = 0;
-    let vat = 0;
-    let discount = 0;
-    let total = 0;
-    for (let i = 0; i < productItems.length; i++) {
-        const itemPrice = parseFloat(productItems[i].querySelector('.price').textContent.replace('$', ''));
-        const ItemQuantity = parseFloat(productItems[i].querySelector('.product-quantity').value);
-        subtotal += itemPrice * ItemQuantity;
-    }
-    // Tính VAT và cộng vào tổng giá trị
-    vat = subtotal * 0.1;
-    // Tính tổng tiền và cập nhật giá trị trong phần summary
-    total = subtotal + vat;
-    document.getElementById('subtotal_value').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('vat_value').textContent = `$${vat.toFixed(2)}`;
-    document.getElementById('total_value').textContent = `$${total.toFixed(2)}`;
-}
-function handleOnChangeQuantity(id, price) {
-    let quantity = document.getElementById('products_' + id).value;
-    if (quantity <= 0) {
-        document.getElementById('price_' + id).innerHTML = 'Vui lòng nhập số lượng hợp lệ';
-        return;
-    } else {
-        let newPrice = quantity * price;
-        document.getElementById('price_' + id).innerHTML = '$' + newPrice;
-    }
-    updateSummary();
-}
+            function hienThiGiaoDien() {
+                let html = '';
+                if (danhSachSanPham.length === 0) {
+                    html = ' Chưa có sản phẩm nào trong giỏ hàng';
+                } else {
+                    for (let i = 0; i < danhSachSanPham.length; i++) {
+                        html += `<li class="dong">
+                        <div class="cot trai">
+                            <div class="thumbnail">
+                                <a href="#"><img src="https://via.placeholder.com/200x150" alt="" /></a>
+                            </div>
+                            <div class="chi-tiet">
+                                <div class="ten"><a href="#">${danhSachSanPham[i].ten}</a></div>
+                                <div class="mo-ta">${danhSachSanPham[i].moTa}</div>
+                                <div class="gia">$${danhSachSanPham[i].gia}</div>
+                                <div class="tong-gia" id="gia_${danhSachSanPham[i].id}"></div>
+                            </div>
+                        </div>
+                        <div class="cot phai">
+                            <div class="so-luong">
+                                <input
+                                    type="number"
+                                    onkeyup="xuLyThayDoiSoLuong(${danhSachSanPham[i].id}, ${danhSachSanPham[i].gia})"
+                                    class="so-luong-san-pham"
+                                    id="san-pham_${danhSachSanPham[i].id}" 
+                                    step="1" value="1" 
+                                />
+                            </div>
+                            <div class="xoa">
+                                <span class="dong"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </li>`;
+                    }
+                }
+                document.getElementById('san-pham').innerHTML = html;
+            }
+            hienThiGiaoDien();
 
-updateSummary();
+            function capNhatTongTien() {
+                const cacSanPham = document.getElementById('san-pham').children;
+                let tongTienTruocGiamGia = 0;
+                let thueVAT = 0;
+                let giamGia = 0;
+                let tongTienSauGiamGia = 0;
+                for (let i = 0; i < cacSanPham.length; i++) {
+                    const giaTien = parseFloat(cacSanPham[i].querySelector('.gia').textContent.replace('$', ''));
+                    const soLuong = parseFloat(cacSanPham[i].querySelector('.so-luong-san-pham').value);
+                    tongTienTruocGiamGia += giaTien * soLuong;
+                }
+                // Tính thuế VAT và cộng vào tổng giá trị
+                thueVAT = tongTienTruocGiamGia * 0.1;
+                // Tính tổng tiền sau giảm giá và cập nhật giá trị trong phần summary
+                tongTienSauGiamGia = tongTienTruocGiamGia + thueVAT;
+                document.getElementById(
+                    'tong-tien-truoc-giam-gia_value',
+                ).textContent = `$${tongTienTruocGiamGia.toFixed(2)}`;
+                document.getElementById('thue-vat_value').textContent = `$${thueVAT.toFixed(2)}`;
+                document.getElementById('tong-tien-sau-giam-gia_value').textContent = `$${tongTienSauGiamGia.toFixed(
+                    2,
+                )}`;
+            }
 
-// Hàm xử lý việc áp dụng mã giảm giá
-function applyPromoCode() {
-    const inputPromoCode = document.getElementById('promo-code').value;
-    const discountElement = document.querySelector('.discount');
-    // Kiểm tra nếu mã giảm giá nhập vào đúng
-    if (inputPromoCode === promoCode) {
-        const subtotalValue = parseFloat(document.getElementById('subtotal_value').textContent.replace('$', ''));
-        const discountValue = subtotalValue * 0.05;
-        document.querySelector('.discount span').textContent = `-$${discountValue.toFixed(2)}`;
-        discountElement.classList.remove('hide');
-    } else {
-        discountElement.classList.add('hide');
-        // Nếu mã giảm giá nhập vào không đúng, hiển thị thông báo lỗi
-        const promoCodeErrorMessage = 'Mã không đúng hoặc đã hết hạn';
-        const promoCodeErrorElement = document.createElement('span');
-        promoCodeErrorElement.classList.add('error-message');
-        promoCodeErrorElement.textContent = promoCodeErrorMessage;
-        const promoCodeContainer = document.querySelector('.promotion');
-        promoCodeContainer.appendChild(promoCodeErrorElement);
-        // Xóa thông báo lỗi sau 3 giây
-        setTimeout(() => {
-            promoCodeErrorElement.remove();
-        }, 3000);
-    }
-    updateSummary();
-}
+            function xuLyThayDoiSoLuong(id, gia) {
+                let soLuong = document.getElementById('san-pham_' + id).value;
+                if (soLuong <= 0) {
+                    document.getElementById('gia_' + id).innerHTML = 'Vui lòng nhập số lượng hợp lệ';
+                    return;
+                } else {
+                    let giaMoi = soLuong * gia;
+                    document.getElementById('gia_' + id).innerHTML = '$' + giaMoi;
+                }
+                capNhatTongTien();
+            }
 
-//Nút remove
-document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('fa-times')) {
-        const productItem = event.target.closest('li.row');
-        const productId = parseInt(productItem.querySelector('.product-quantity').id.replace('products_', ''));
-        products = products.filter((product) => product.id !== productId);
-        productItem.remove();
-        updateSummary();
-    }
-});
+            capNhatTongTien();
 
+            function apDungMaGiamGia() {
+                const maGiamGiaNhap = document.getElementById('ma-giam-gia').value;
+                const phanGiamGia = document.querySelector('.giam-gia');
+                // Kiểm tra nếu mã giảm giá nhập vào đúng
+                if (maGiamGiaNhap === maGiamGia) {
+                    const tongTienTruocGiamGiaValue = parseFloat(
+                        document.getElementById('tong-tien-truoc-giam-gia_value').textContent.replace('$', ''),
+                    );
+                    const giaTriGiamGia = tongTienTruocGiamGiaValue * 0.05;
+                    document.querySelector('.giam-gia span').textContent = `-$${giaTriGiamGia.toFixed(2)}`;
+                    phanGiamGia.classList.remove('hide');
+                } else {
+                    phanGiamGia.classList.add('hide');
+                    // Nếu mã giảm giá nhập vào không đúng, hiển thị thông báo lỗi
+                    const thongBaoLoiMaGiamGia = 'Mã không đúng hoặc đã hết hạn';
+                    const phanTuThongBaoLoiMaGiamGia = document.createElement('span');
+                    phanTuThongBaoLoiMaGiamGia.classList.add('thong-bao-loi');
+                    phanTuThongBaoLoiMaGiamGia.textContent = thongBaoLoiMaGiamGia;
+                    const khuyenMaiContainer = document.querySelector('.khuyen-mai');
+                    khuyenMaiContainer.appendChild(phanTuThongBaoLoiMaGiamGia);
+                    // Xóa thông báo lỗi sau 3 giây
+                    setTimeout(() => {
+                        phanTuThongBaoLoiMaGiamGia.remove();
+                    }, 3000);
+                }
+                capNhatTongTien();
+            }
+
+            //Nút remove
+            document.addEventListener('click', function (event) {
+                if (event.target.classList.contains('fa-times')) {
+                    const sanPham = event.target.closest('li.dong');
+                    const idSanPham = parseInt(sanPham.querySelector('.so-luong-san-pham').id.replace('san-pham_', ''));
+                    danhSachSanPham = danhSachSanPham.filter((sanPham) => sanPham.id !== idSanPham);
+                    sanPham.remove();
+                    capNhatTongTien();
+                }
+            });
         </script>
     </body>
 </html>
-

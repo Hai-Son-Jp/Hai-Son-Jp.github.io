@@ -33,7 +33,8 @@ function renderUI() {
         html = ' Chưa có sản phẩm nào trong giỏ hàng';
     } else {
         for (let i = 0; i < products.length; i++) {
-            html += `<li class="row">
+            html += /*html*/ `
+            <li class="row">
             <div class="col left">
                 <div class="thumbnail">
                     <a href="#"><img src="https://via.placeholder.com/200x150" alt="" /></a>
@@ -56,7 +57,7 @@ function renderUI() {
                     />
                 </div>
                 <div class="remove">
-                    <span class="close"><i class="fa fa-times" aria-hidden="true"></i></span>
+                    <span class="close" onclick="handleRemoveItem(${products[i].id})" ><i class="fa fa-times" aria-hidden="true"></i></span>
                 </div>
             </div>
         </li>`;
@@ -79,6 +80,7 @@ function updateSummary() {
         const ItemQuantity = parseFloat(productItems[i].querySelector('.product-quantity').value);
         subtotal += itemPrice * ItemQuantity;
     }
+
     // Tính VAT và cộng vào tổng giá trị
     vat = subtotal * 0.1;
     // Tính tổng tiền và cập nhật giá trị trong phần summary
@@ -98,7 +100,6 @@ function handleOnChangeQuantity(id, price) {
     }
     updateSummary();
 }
-
 updateSummary();
 
 // Hàm xử lý việc áp dụng mã giảm giá
@@ -129,7 +130,7 @@ function applyPromoCode() {
 }
 
 //Nút remove
-document.addEventListener('click', function (event) {
+/* document.addEventListener('click', function (event) {
     if (event.target.classList.contains('fa-times')) {
         const productItem = event.target.closest('li.row');
         const productId = parseInt(productItem.querySelector('.product-quantity').id.replace('products_', ''));
@@ -138,3 +139,19 @@ document.addEventListener('click', function (event) {
         updateSummary();
     }
 });
+*/
+function handleRemoveItem(itemId) {
+    // Dùng filter
+    products = products.filter((product) => product.id !== itemId);
+    // Dùng vòng lập for
+    /* 
+     for (let i = 0; i < products.length; i++) {
+        if (products[i].id === itemId) {
+            products.splice(i, 1);
+        }
+    }
+    */
+
+    renderUI();
+    updateSummary();
+}
